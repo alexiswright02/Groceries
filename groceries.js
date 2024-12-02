@@ -9,61 +9,39 @@
 
 // ------------------ Complete the functions written below ------------------------------ //
 
-/**
- * Prints out the name of each item in the given array.
- * @param {Item[]} items - array of items
- */
+/**Prints out the name of each item in the given array.*/
 function logNames(items) {
-  // TODO: use `forEach`
+  INVENTORY.forEach((item, index) => {
+    console.log(item.name);
+  });
 }
 
-/**
- * @param {Item[]} items - array of items
- * @returns {string[]} an array of item names in all uppercase
- */
+/**an array of item names in all uppercase*/
 function getUppercaseNames(items) {
-  // TODO: use `map`
+  return INVENTORY.map((item) => item.name.toUpperCase());
 }
 
-/**
- * @param {Item[]} items - array of items
- * @param {number} id - id of the item to find
- * @returns {Item} - the item in `items` with the given `id`
- */
+/**the item in `items` with the given `id`*/
 function getItemById(items, id) {
-  // TODO: use `find`
+  return INVENTORY.find((item) => item.id === id);
 }
 
-/**
- * @param {Item[]} items - array of items
- * @param {string} name - name of the item to find
- * @returns {number} the price of the item named `name`
- */
+/**the price of the item named `name`*/
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
 }
 
-/**
- * @param {Item[]} items - array of items
- * @param {string} category
- * @returns {Item[]} array of items that belong to the given `category`
- */
+/**array of items that belong to the given `category`*/
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
 }
 
-/**
- * @param {Item[]} items - array of items
- * @returns {number} the total quantity of all items
- */
+/**the total quantity of all items*/
 function countItems(items) {
   // TODO: use `reduce`
 }
 
-/**
- * @param {Item[]} items - array of items
- * @returns {number} the cost of all given items
- */
+/**the cost of all given items*/
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
 }
