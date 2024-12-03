@@ -11,9 +11,11 @@
 
 /**Prints out the name of each item in the given array.*/
 function logNames(items) {
-  INVENTORY.forEach((item, index) => {
-    console.log(item.name);
+  const names = [];
+  items.forEach((item) => {
+    names.push(item.name);
   });
+  console.log(names);
 }
 
 /**an array of item names in all uppercase*/
@@ -23,27 +25,34 @@ function getUppercaseNames(items) {
 
 /**the item in `items` with the given `id`*/
 function getItemById(items, id) {
-  return INVENTORY.find((item) => item.id === id);
+  const item = INVENTORY.find((item) => item.id === id);
+  return item.name;
 }
 
 /**the price of the item named `name`*/
 function getItemPriceByName(items, name) {
-  // TODO: use a loop!
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name === name) {
+      return items[i].price;
+    }
+  }
 }
 
 /**array of items that belong to the given `category`*/
 function getItemsByCategory(items, category) {
-  // TODO: use `filter`
+  const filteredItems = items.filter((item) => item.category === category);
+  const itemNames = filteredItems.map((item) => item.name);
+  return itemNames;
 }
 
 /**the total quantity of all items*/
 function countItems(items) {
-  // TODO: use `reduce`
+  return INVENTORY.reduce((acc, item) => acc + item.quantity, 0);
 }
 
 /**the cost of all given items*/
 function calculateTotalPrice(items) {
-  // TODO: use `reduce`
+  return INVENTORY.reduce((acc, item) => acc + item.price * item.quantity, 0);
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
